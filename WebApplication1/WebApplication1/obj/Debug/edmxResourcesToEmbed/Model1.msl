@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Database1ModelStoreContainer" CdmEntityContainer="Database1Entities">
+    <EntitySetMapping Name="colors">
+      <EntityTypeMapping TypeName="Database1Model.color">
+        <MappingFragment StoreEntitySet="color">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="colorname" ColumnName="colorname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="forms">
+      <EntityTypeMapping TypeName="Database1Model.form">
+        <MappingFragment StoreEntitySet="form">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="color" ColumnName="color" />
+          <ScalarProperty Name="quility" ColumnName="quility" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Quilities">
+      <EntityTypeMapping TypeName="Database1Model.Quility">
+        <MappingFragment StoreEntitySet="Quility">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="quilityname" ColumnName="quilityname" />
+          <ScalarProperty Name="colorid" ColumnName="colorid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tables">
+      <EntityTypeMapping TypeName="Database1Model.Table">
+        <MappingFragment StoreEntitySet="Table">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

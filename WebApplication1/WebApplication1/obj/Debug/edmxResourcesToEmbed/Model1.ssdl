@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Database1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="color">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="colorname" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="form">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="age" Type="int" Nullable="false" />
+    <Property Name="color" Type="int" Nullable="false" />
+    <Property Name="quility" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Quility">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="quilityname" Type="varchar" MaxLength="50" />
+    <Property Name="colorid" Type="int" />
+  </EntityType>
+  <EntityType Name="Table">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Quility_ToTable">
+    <End Role="color" Type="Self.color" Multiplicity="0..1" />
+    <End Role="Quility" Type="Self.Quility" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="color">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Quility">
+        <PropertyRef Name="colorid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Database1ModelStoreContainer">
+    <EntitySet Name="color" EntityType="Self.color" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="form" EntityType="Self.form" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Quility" EntityType="Self.Quility" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Quility_ToTable" Association="Self.FK_Quility_ToTable">
+      <End Role="color" EntitySet="color" />
+      <End Role="Quility" EntitySet="Quility" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
